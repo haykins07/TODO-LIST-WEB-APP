@@ -1,0 +1,270 @@
+/* Body styling with gradient background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* AliceBlue background color */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #ffffff, #0077FF); /* Gradient background */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    background-size: cover; /* Ensures the background covers the entire page */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Container for the form and tasks */
+#app-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start of the container */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Form styling */
+#app {
+    width: 350px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: fixed; /* Keep the form fixed on the left side */
+    left: 20px;
+    top: 20px;
+    z-index: 1;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Styling the input fields */
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between form elements */
+}
+
+input[type="text"], textarea, input[type="datetime-local"], select {
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center align all inputs */
+input[type="text"], textarea, input[type="datetime-local"], select, button {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Button styling */
+button {
+    width: 50%; /* Adjust width as needed */
+    margin: 10px auto 0 auto; /* Center button horizontally */
+    padding: 10px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #1f65a6;
+    transform: scale(0.95);
+}
+
+/* Tasks container styling */
+#tasks-container {
+    margin-left: 45%; /* Leave space for the fixed form */
+    padding: 20px;
+    background-color: transparent; /* Set background to transparent */
+    width: calc(100% - 800px); /* Adjust the width to reduce the task list size */
+    max-height: 100vh; /* Ensure it does not exceed viewport height */
+}
+/* Base styles for larger screens */
+#tasks-container {
+    position: fixed; /* Keep the container fixed */
+    right: 0; /* Align to the right side */
+    padding: 20px;
+    background-color: transparent;
+    max-height: 100vh; /* Ensure it does not exceed viewport height */
+    width: calc(100% - 800px); /* Initial width */
+    
+    margin-right: 10%;
+}
+
+/* Media query for slightly smaller screens */
+@media (max-width: 1200px) {
+    #tasks-container {
+        width: calc(100% - 600px); /* Adjust the width */
+    }
+}
+
+@media (max-width: 992px) {
+    #tasks-container {
+        width: calc(100% - 400px); /* Further adjust the width */
+    }
+}
+
+@media (max-width: 768px) {
+    #tasks-container {
+        width: calc(100% - 200px); /* Adjust for smaller screens */
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1200px) {
+    #tasks-container {
+        width: calc(100% - 600px); /* Adjust the width for smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    #tasks-container {
+        width: calc(100% - 400px); /* Further adjust for even smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #tasks-container {
+        width: calc(100% - 200px); /* Adjust for mobile-sized screens */
+    }
+}
+
+
+.task {
+    background-color: #f8f9fa; /* Light gray background for better contrast */
+    border: 1px solid #ddd;    /* Light border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #333;               /* Dark text color to ensure readability */
+}
+
+/* Center align buttons within tasks */
+.task button {
+    display: block;
+    margin: 10px auto;
+    width: 80%; /* Adjust the button width within the task list */
+}
+
+.task h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #007bff;            /* Blue color for the task title */
+}
+
+.task p {
+    margin: 0 0 5px;
+    color: #333;               /* Dark text color for the description */
+}
+
+/* Animation for showing task */
+.task.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation for removing task */
+.task.removing {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Styling for delete button */
+button.delete {
+    background-color: #d12727;
+    margin: 5px auto; /* Corrected margin syntax */
+}
+
+button.delete:hover {
+    background-color: #ff4430;
+}
+
+/* Styling for edit button */
+button.edit {
+    background-color: #f39c12;
+    margin: 5px auto; /* Corrected margin syntax */
+}
+
+button.edit:hover {
+    background-color: #e67e22;
+}
+
+/* Styling for update button */
+button.update {
+    background-color: #27ae60;
+    width: auto;
+}
+
+/* Styling for cancel button */
+button.cancel {
+    background-color: #bdc3c7;
+    width: auto;
+}
+
+/* Styling for overdue tasks */
+.task.overdue {
+    background-color: #ffe6e6; /* Light red background for overdue tasks */
+    border-color: #ff4d4d; /* Red border */
+}
+
+.task.overdue h3 {
+    color: #ff1a1a; /* Dark red text */
+}
+
+/* Styling for the filter and sort container */
+#filter-sort-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Styling for filter and sort dropdowns */
+#filter-priority, #sort-tasks {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Media query for responsive layout on very small screens */
+@media (max-width: 1000px) {
+    #app-container {
+        flex-direction: column; /* Stack form and task list vertically */
+        align-items: center; /* Center align items */
+    }
+
+    #app {
+        position: static; /* Remove fixed positioning */
+        width: 50%; /* Reduce width for form */
+        margin-bottom: 20px; /* Add spacing below form */
+    }
+
+    #tasks-container {
+        position: static; /* Remove fixed positioning */
+        margin-left: 0; /* Remove margin-left */
+        margin-right: 0;
+        width: 50%; /* Reduce width for task list */
+    }
+
+    .task button {
+        width: 50%; /* Reduce width of buttons */
+    }
+}
