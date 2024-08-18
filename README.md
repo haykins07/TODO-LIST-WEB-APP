@@ -1,14 +1,14 @@
-# To-Do List Web App
+ To-Do List Web App
 
 This project is a simple To-Do List web application developed as part of a course project.
 
-## Project Structure
+ Project Structure
 
-- **backend/**: Contains the Node.js backend code
-- **frontend/**: Contains the React frontend code
-- **docs/**: Contains documentation files for the project
+backend: Contains the Node.js backend code
+frontend: Contains the React frontend code
+docs: Contains documentation files for the project
 
-## Installation
+ Installation
 
 1. Navigate to the `backend/` folder and run `npm install` to install dependencies.
 2. Start the backend server with `npm start`.

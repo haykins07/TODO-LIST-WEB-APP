@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Link to Flatpickr CSS for date and time picker functionality -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Load Flatpickr JS library -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
-    <!-- Main container holding both the form and tasks -->
+    <!-- Main container holding both the form and task list -->
     <div id="app-container">
         <div id="app">
             <h1>To-Do List</h1>
 
-            <!-- Filter and Sort Container -->
+            <!-- Container for filter and sort dropdowns -->
             <div id="filter-sort-container">
+                <!-- Dropdown for filtering tasks by priority -->
                 <select id="filter-priority" onchange="filterTasks()">
                     <option value="All">All</option>
                     <option value="High">High Priority</option>
@@ -25,6 +29,7 @@
                     <option value="Low">Low Priority</option>
                 </select>
 
+                <!-- Dropdown for sorting tasks by various criteria -->
                 <select id="sort-tasks" onchange="sortTasks()">
                     <option value="default">Sort By</option>
                     <option value="date">Due Date</option>
@@ -32,43 +37,55 @@
                 </select>
             </div>
 
-            <!-- Task input form -->
+            <!-- Form for adding new tasks -->
             <form id="task-form">
+                <!-- Input for task title -->
                 <input type="text" id="task-title" placeholder="Task Title" required>
+                <!-- Textarea for task description -->
                 <textarea id="task-desc" placeholder="Task Description"></textarea>
+                <!-- Input for task due date, integrated with Flatpickr -->
                 <input type="text" id="task-due" placeholder="Due Date" required>
+                <!-- Dropdown for selecting task priority -->
                 <select id="task-priority">
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
                 </select>
+                <!-- Button to submit the form and add a task -->
                 <button type="submit">Add Task</button>
             </form>
         </div>
 
-        <!-- Task list container -->
+        <!-- Container for displaying the list of tasks -->
         <div id="tasks-container">
             <div id="tasks"></div>
         </div>
     </div>
 
-    <!-- Edit form (Initially hidden) -->
+    <!-- Hidden container for the edit form, will be shown when editing a task -->
     <div id="edit-form-container" style="display: none;">
         <h2>Edit Task</h2>
         <form id="edit-form">
+            <!-- Input for editing task title -->
             <input type="text" id="edit-title" placeholder="Task Title" required>
+            <!-- Textarea for editing task description -->
             <textarea id="edit-desc" placeholder="Task Description"></textarea>
+            <!-- Input for editing task due date and time -->
             <input type="datetime-local" id="edit-due" placeholder="Due Date">
+            <!-- Dropdown for editing task priority -->
             <select id="edit-priority">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
             </select>
+            <!-- Button to submit the edited task -->
             <button type="submit">Update Task</button>
+            <!-- Button to cancel editing and hide the edit form -->
             <button type="button" onclick="hideEditForm()">Cancel</button>
         </form>
     </div>
 
+    <!-- Link to external JavaScript file containing the app logic -->
     <script src="app.js"></script>
 </body>
 

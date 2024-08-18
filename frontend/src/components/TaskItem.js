@@ -1,29 +1,39 @@
 import React, { useState } from 'react';
 
 function TaskItem({ task, onDelete, onUpdate }) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [title, setTitle] = useState(task.title);
-    const [description, setDescription] = useState(task.description);
-    const [reminder, setReminder] = useState(task.reminder);
+    // State variables to manage editing state and form inputs
+    const [isEditing, setIsEditing] = useState(false); // Tracks whether the task is in edit mode
+    const [title, setTitle] = useState(task.title); // Manages the task title input
+    const [description, setDescription] = useState(task.description); // Manages the task description input
+    const [reminder, setReminder] = useState(task.reminder); // Manages the task reminder input
 
+    // Function to handle task updates
     const handleUpdate = () => {
+        // Validation: Ensure the task title is not empty
         if (!title) {
             alert('Task title cannot be empty');
             return;
         }
+        // Validation: Ensure the reminder date is not in the past
         if (new Date(reminder) < new Date()) {
             alert('Cannot set a past date and time');
             return;
         }
+        // Call the onUpdate function passed as a prop to update the task
         onUpdate(task._id, { title, description, reminder });
-        setIsEditing(false);
+        setIsEditing(false); // Exit edit mode after saving
     };
 
     return (
         <div className="task-item">
             {isEditing ? (
+                // Render edit form if in editing mode
                 <>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input 
+                        type="text" 
+                        value={title} 
+                        onChange={(e) => setTitle(e.target.value)} 
+                    />
                     <input
                         type="text"
                         value={description}
@@ -37,6 +47,7 @@ function TaskItem({ task, onDelete, onUpdate }) {
                     <button onClick={handleUpdate}>Save</button>
                 </>
             ) : (
+                // Render task details if not in editing mode
                 <>
                     <h3>{task.title}</h3>
                     <p>{task.description}</p>
