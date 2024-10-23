@@ -270,39 +270,20 @@ button.cancel {
 }
 /* Media query for mobile devices */
 @media (max-width: 600px) {
+    #app-container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center align items */
+        justify-content: center; /* Center items vertically */
+    }
+
     #app {
         width: 90%; /* Make the form full width */
         margin: 10px auto; /* Center the form with some margin */
-        position: relative; /* Reset position to allow for stacking */
     }
 
     #tasks-container {
         width: 90%; /* Make the task container full width */
         margin: 10px auto; /* Center the task list */
-        position: relative; /* Reset position for stacking */
         padding: 10px; /* Adjust padding */
-    }
-
-    .task {
-        width: 100%; /* Make tasks full width */
-    }
-
-    .task button {
-        width: 100%; /* Make buttons full width within tasks */
-    }
-
-    /* Adjust heading font size */
-    h1 {
-        font-size: 20px; /* Smaller heading for mobile */
-    }
-
-    /* Adjust input field width */
-    input[type="text"], textarea, input[type="datetime-local"], select {
-        width: calc(100% - 20px); /* Full width input */
-    }
-
-    /* Adjust button size */
-    button {
-        width: 100%; /* Full width for buttons */
     }
 }
