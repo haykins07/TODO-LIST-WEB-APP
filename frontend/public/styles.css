@@ -285,5 +285,9 @@ button.cancel {
         width: 90%; /* Make the task container full width */
         margin: 10px auto; /* Center the task list */
         padding: 10px; /* Adjust padding */
+        
     }
+}
+#app-container, #app, #tasks-container {
+    overflow-y: auto;
 }

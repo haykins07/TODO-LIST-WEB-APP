@@ -1,61 +1,77 @@
-To-Do List Web App
+TODO List Web App
 
-This project is a simple To-Do List web application developed as part of a course project.
+A simple to-do list application designed to help users manage their tasks efficiently. Built with a Node.js backend and a React frontend, this app uses MongoDB for data storage.
 
- Project Structure
+ Features
+- Add, edit, and delete tasks
+- Mark tasks as completed
+- Responsive design for desktop and mobile use
 
-- `backend/`: Contains the Node.js backend code.
-- `frontend/`: Contains the React frontend code.
-- `docs/`: Contains documentation files for the project.
+ Requirements
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- [MongoDB](https://www.mongodb.com/try/download/community) (installed and running locally)
 
  Installation Instructions
 
-1. Clone the Repository:
-   ```bash
-   git clone https://github.com/haykins07/TODO-LIST-WEB-APP.git
-   cd TODO-LIST-WEB-APP
-   ```
+ 1. Clone the Repository
+```bash
+git clone https://github.com/haykins07/TODO-LIST-WEB-APP.git
+cd TODO-LIST-WEB-APP
+```
 
-2. Install Backend Dependencies:
-   Navigate to the `backend/` folder and install the necessary Node.js dependencies:
-   ```bash
-   cd backend
-   npm install
-   ```
+ 2. Install Backend Dependencies
+Navigate to the `backend/` folder and install the necessary Node.js dependencies:
+```bash
+cd backend
+npm install
+```
 
-3. MongoDB Setup:
-   Ensure you have MongoDB installed and running locally.
-   For Local MongoDB:
-     1. Install MongoDB from [the official website](https://www.mongodb.com/try/download/community) and follow the installation instructions for your operating system.
-     2. Start the MongoDB server by running `mongod` in your terminal.
-     3. Create a database named `todo-list` by running the following commands in a separate terminal:
-        ```bash
-        mongo
-        use todo-list
-        ```
-     4. Ensure the database is accessible by checking that it is running correctly.
+ 3. MongoDB Setup
+Ensure MongoDB is installed and running locally.
 
-4. Start the Backend Server:
-   Run the following command to start the Node.js backend server:
-   ```bash
-   npm start
-   ```
-   The backend server will start at `http://localhost:5000` (if you change the default port, specify this).
+- Install MongoDB: Follow the [installation instructions](https://www.mongodb.com/try/download/community) for your operating system.
+- **Start MongoDB Server:
+  ```bash
+  mongod
+  ```
+  
+- Create and Configure Database:
+  Open another terminal and create a database named `todo-list`:
+  ```bash
+  mongo
+  use todo-list
+  ```
 
-5. Install Frontend Dependencies:
-   Navigate to the `frontend/` folder and install the necessary React dependencies:
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+- Configure Connection:
+  Update the MongoDB connection URL in the backend configuration file (`backend/.env`) to:
+  ```plaintext
+  MONGODB_URI=mongodb://localhost:27017/todo-list
+  ```
+  Verify MongoDB is accessible by running `mongo` and listing databases with `show dbs`.
 
-6. Start the Frontend:
-   Run the following command to start the React frontend:
-   ```bash
-   npm start
-   ```
-   The frontend will be available at `http://localhost:3000`.
+4. Start the Backend Server
+From the `backend/` directory, run:
+```bash
+npm start
+```
+The backend server should be available at `http://localhost:5000`.
 
-7.Open the Application:
-   After starting both the backend and frontend, open your browser and navigate to `http://localhost:3000` to view and interact with the app. Ensure both servers are running and accessible.
+5. Install Frontend Dependencies
+Navigate to the `frontend/` folder and install the necessary React dependencies:
+```bash
+cd ../frontend
+npm install
+```
 
+6. Specify the Location of `index.html`
+The `index.html` file, the main entry point for the React frontend, is located in `frontend/public/`.
+
+7. Start the Frontend
+In the `frontend/` directory, run:
+```bash
+npm start
+```
+The frontend will be available at `http://localhost:8080`.
+
+8. Open the Application
+Once both servers are running, open your browser and navigate to `http://localhost:8080` to interact with the app.
